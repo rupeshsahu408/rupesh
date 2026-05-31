@@ -1,0 +1,32 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "Iid0VF2kgTcdbpOh-QWF6"
+uri = "file://artifacts/mockup-sandbox/public/images/rupesh-hero-bg.png"
+type = "image"
+title = "Abstract late night workspace background"
+
+[[generated]]
+id = "OmG9927ocEJIa-EkHdnGC"
+uri = "file://artifacts/mockup-sandbox/public/images/rupesh-avatar.png"
+type = "image"
+title = "Cool developer avatar portrait"
+
+[[generated]]
+id = "AV12zzzJ8cyivUtLl8DZo"
+uri = "file://artifacts/mockup-sandbox/public/images/rupesh-project-1.png"
+type = "image"
+title = "Web3 dashboard project thumbnail"
+
+[[generated]]
+id = "HcaGZ-WFI1svjz5nhpYf-"
+uri = "file://artifacts/mockup-sandbox/public/images/rupesh-project-2.png"
+type = "image"
+title = "Creator mobile app project thumbnail"
+
+[[generated]]
+id = "7uGVlOhF3A1IxSq9PL0Gx"
+uri = "file://artifacts/mockup-sandbox/public/images/rupesh-project-3.png"
+type = "image"
+title = "Developer tool CLI project thumbnail"

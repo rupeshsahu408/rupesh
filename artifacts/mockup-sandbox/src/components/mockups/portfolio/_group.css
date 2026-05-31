@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.portfolio-rupesh {
+  --rg-bg: 230 25% 4%;
+  --rg-surface: 230 20% 8%;
+  --rg-surface-hover: 230 20% 12%;
+  --rg-primary: 210 100% 55%; /* Electric blue */
+  --rg-accent: 280 100% 60%; /* Vivid purple/pink */
+  --rg-text: 0 0% 100%;
+  --rg-text-muted: 230 15% 65%;
+  --rg-border: 230 20% 15%;
+
+  background-color: hsl(var(--rg-bg));
+  color: hsl(var(--rg-text));
+  font-family: 'Space Grotesk', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.portfolio-rupesh .font-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+/* Custom Selection */
+.portfolio-rupesh ::selection {
+  background: hsl(var(--rg-primary));
+  color: #fff;
+}
+
+/* Noise overlay */
+.portfolio-rupesh .noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Glowing text */
+.portfolio-rupesh .text-glow {
+  text-shadow: 0 0 20px hsla(var(--rg-primary), 0.5);
+}
+.portfolio-rupesh .text-glow-accent {
+  text-shadow: 0 0 20px hsla(var(--rg-accent), 0.5);
+}
+
+/* Gradient text */
+.portfolio-rupesh .text-gradient {
+  background: linear-gradient(to right, hsl(var(--rg-primary)), hsl(var(--rg-accent)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animated background gradient */
+.portfolio-rupesh .bg-glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) }
+  50% { transform: translateY(-20px) }
+  100% { transform: translateY(0px) }
+}
+.portfolio-rupesh .animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+.portfolio-rupesh::-webkit-scrollbar {
+  width: 8px;
+}
+.portfolio-rupesh::-webkit-scrollbar-track {
+  background: hsl(var(--rg-bg));
+}
+.portfolio-rupesh::-webkit-scrollbar-thumb {
+  background: hsl(var(--rg-border));
+  border-radius: 4px;
+}
+.portfolio-rupesh::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--rg-surface-hover));
+}
