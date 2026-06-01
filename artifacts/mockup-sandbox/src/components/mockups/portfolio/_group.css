@@ -195,3 +195,71 @@
   box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
   border-color: rgba(139, 92, 246, 0.8);
 }
+
+/* ── Contact Form ── */
+.portfolio-rupesh .form-field-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.portfolio-rupesh .form-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #a1a1aa;
+}
+
+.portfolio-rupesh .form-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(10, 5, 20, 0.6);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  border-radius: 14px;
+  padding: 0 16px;
+  transition: all 0.3s ease;
+}
+
+.portfolio-rupesh .form-input-wrap.textarea-wrap {
+  align-items: flex-start;
+  padding: 14px 16px;
+}
+
+.portfolio-rupesh .form-input-wrap.focused {
+  border-color: rgba(139, 92, 246, 0.6);
+  background: rgba(20, 10, 40, 0.7);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.08), 0 0 20px rgba(139, 92, 246, 0.1);
+}
+
+.portfolio-rupesh .form-icon {
+  color: #6d28d9;
+  flex-shrink: 0;
+  margin-top: 0;
+}
+
+.portfolio-rupesh .textarea-wrap .form-icon {
+  margin-top: 4px;
+}
+
+.portfolio-rupesh .form-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  width: 100%;
+  padding: 14px 0;
+}
+
+.portfolio-rupesh .form-input::placeholder {
+  color: rgba(161, 161, 170, 0.4);
+}
+
+.portfolio-rupesh .form-textarea {
+  resize: none;
+  padding: 0;
+  line-height: 1.6;
+}

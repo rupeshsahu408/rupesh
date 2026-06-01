@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Twitter, Instagram, Mail, ArrowRight, ExternalLink, Zap, Target, Rocket, Code } from 'lucide-react';
+import { Twitter, Instagram, Mail, ArrowRight, ExternalLink, Zap, Target, Rocket, Send, CheckCircle, User, MessageSquare } from 'lucide-react';
 import './_group.css';
 
 const fadeUpVariant = {
@@ -22,6 +22,17 @@ export function Portfolio() {
   const { scrollYProgress } = useScroll();
   const yBg = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
   const opacityHero = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [submitted, setSubmitted] = useState(false);
+  const [focused, setFocused] = useState<string | null>(null);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (form.name && form.email && form.message) {
+      setSubmitted(true);
+    }
+  };
 
   useEffect(() => {
     document.title = "Rupesh Gupta | Solo Entrepreneur";
@@ -235,6 +246,125 @@ export function Portfolio() {
                 </motion.div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Contact Form Section */}
+        <section id="contact" className="py-32 px-4 border-t border-white/5 relative">
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-10">
+            <div className="w-[600px] h-[600px] bg-[#c084fc] rounded-full filter blur-[150px]"></div>
+          </div>
+          <div className="max-w-3xl mx-auto relative z-10">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={staggerContainer}
+            >
+              <motion.div variants={fadeUpVariant} className="text-center mb-16">
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#8b5cf6]/30 bg-[#8b5cf6]/10 backdrop-blur-md mb-6 text-sm font-medium tracking-wide uppercase text-[#c084fc]">
+                  <MessageSquare size={14} /> Let's Connect
+                </span>
+                <h2 className="text-4xl md:text-6xl font-bold mb-4">
+                  Drop me a <span className="text-gradient">message.</span>
+                </h2>
+                <p className="text-[#a1a1aa] text-lg">Ideas, collabs, opportunities — I read everything.</p>
+              </motion.div>
+
+              <motion.div variants={fadeUpVariant} className="glass-card rounded-3xl p-8 md:p-12 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-[#8b5cf6]/10 blur-[80px] pointer-events-none"></div>
+
+                {submitted ? (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="text-center py-12 flex flex-col items-center gap-6"
+                  >
+                    <div className="w-20 h-20 rounded-full bg-[#8b5cf6]/20 border border-[#8b5cf6]/40 flex items-center justify-center">
+                      <CheckCircle size={40} className="text-[#8b5cf6]" />
+                    </div>
+                    <h3 className="text-3xl font-bold">Message Sent!</h3>
+                    <p className="text-[#a1a1aa] text-lg max-w-sm">
+                      Thanks for reaching out. I'll get back to you at <span className="text-[#c084fc]">hello@sendora.me</span> soon.
+                    </p>
+                    <button
+                      onClick={() => { setSubmitted(false); setForm({ name: '', email: '', message: '' }); }}
+                      className="btn-glow-outline px-6 py-3 rounded-full text-sm font-medium"
+                    >
+                      Send another message
+                    </button>
+                  </motion.div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      {/* Name */}
+                      <div className="form-field-wrap">
+                        <label className="form-label">Your Name</label>
+                        <div className={`form-input-wrap ${focused === 'name' ? 'focused' : ''}`}>
+                          <User size={16} className="form-icon" />
+                          <input
+                            type="text"
+                            placeholder="Rupesh Gupta"
+                            value={form.name}
+                            onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+                            onFocus={() => setFocused('name')}
+                            onBlur={() => setFocused(null)}
+                            className="form-input"
+                            required
+                          />
+                        </div>
+                      </div>
+                      {/* Email */}
+                      <div className="form-field-wrap">
+                        <label className="form-label">Email Address</label>
+                        <div className={`form-input-wrap ${focused === 'email' ? 'focused' : ''}`}>
+                          <Mail size={16} className="form-icon" />
+                          <input
+                            type="email"
+                            placeholder="you@example.com"
+                            value={form.email}
+                            onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+                            onFocus={() => setFocused('email')}
+                            onBlur={() => setFocused(null)}
+                            className="form-input"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    {/* Message */}
+                    <div className="form-field-wrap">
+                      <label className="form-label">Your Message</label>
+                      <div className={`form-input-wrap textarea-wrap ${focused === 'message' ? 'focused' : ''}`}>
+                        <textarea
+                          placeholder="Hey Rupesh, I'd love to collaborate on..."
+                          value={form.message}
+                          onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
+                          onFocus={() => setFocused('message')}
+                          onBlur={() => setFocused(null)}
+                          className="form-input form-textarea"
+                          rows={5}
+                          required
+                        />
+                      </div>
+                    </div>
+                    {/* Submit */}
+                    <motion.button
+                      type="submit"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="btn-glow w-full py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-3"
+                    >
+                      Send Message <Send size={20} />
+                    </motion.button>
+                    <p className="text-center text-[#a1a1aa] text-sm">
+                      Or email directly at <a href="mailto:hello@sendora.me" className="text-[#c084fc] hover:underline">hello@sendora.me</a>
+                    </p>
+                  </form>
+                )}
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
