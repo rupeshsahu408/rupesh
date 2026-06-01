@@ -30,3 +30,27 @@ id = "7uGVlOhF3A1IxSq9PL0Gx"
 uri = "file://artifacts/mockup-sandbox/public/images/rupesh-project-3.png"
 type = "image"
 title = "Developer tool CLI project thumbnail"
+
+[[generated]]
+id = "qp_pbF8fz33JsdqF5MMOz"
+uri = "file://artifacts/mockup-sandbox/public/images/hero-bg.png"
+type = "image"
+title = "Deep space purple nebula"
+
+[[generated]]
+id = "N2pbWJFBccLaHI41dLrjR"
+uri = "file://artifacts/mockup-sandbox/public/images/venture-1.png"
+type = "image"
+title = "Abstract startup launch"
+
+[[generated]]
+id = "mbW489WW_n4Y7Z9ObNP84"
+uri = "file://artifacts/mockup-sandbox/public/images/venture-2.png"
+type = "image"
+title = "Digital future concept"
+
+[[generated]]
+id = "qbyxKRzY57KK9PAP8dhnz"
+uri = "file://artifacts/mockup-sandbox/public/images/venture-3.png"
+type = "image"
+title = "Solopreneur vision"
